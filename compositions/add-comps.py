@@ -29,6 +29,7 @@ try:
     # load in the HDF5 file
     comps = load_hdf5_compositions(filename)
     original_number = len(comps)
+    matid_number = original_number
 
     # convert comps to a list of dictionaries
     comps_list = [c._asdict() for c in comps]
@@ -36,6 +37,12 @@ try:
     # add custom materials not already in the HDF5 file
     for material in custom_mats:
         comps_list.append(material._asdict())
+
+        # adjust the material IDs to increase sequentially from the matids
+        # in the original input
+        added = comps_list[-1]
+        added['matid'] = matid_number
+        matid_number += 1
 
     final_number = len(comps_list)
 
@@ -46,9 +53,12 @@ try:
     # application of this script to the same composition input file should not
     # produce repeated custom materials in the output HDF5 file.
     with h5.File(filename_out, 'w') as f:
+
         h5_c.dump(f)
         new = final_number - original_number
         print("Wrote {0} new material{1}!".format(new, '' if new == 1 else 's'))
+
+
 
 except:
     print("""Error: the usage of this script requires the following syntax:\n
