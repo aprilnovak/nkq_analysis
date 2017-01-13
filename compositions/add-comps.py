@@ -5,13 +5,25 @@ from robus import load_hdf5_compositions, Nuclide_Metadata, Composition
 
 Nuclide_Metadata.load_SCL()
 
-custom_mat = Composition(300.0, [1001, 1002, 8016, 8017], [6.67e-2, 7.67e-6, 3.32e-2, 1.26e-5])
+# The syntax for defining a custom material is:
+# custom_mat_name = Composition(temperature in Kelvin, \
+#                               [zaids],\
+#                               [number densities],\
+#                               fissionable? (TRUE or FALSE (default)),\
+#                               depletable? (TRUE or FALSE (default)))
+
+# CUSTOM MATERIAL DEFINITIONS
+water = Composition(300.0, [1001, 1002, 8016, 8017], [6.67e-2, 7.67e-6, 3.32e-2, 1.26e-5])
+
+# put custom materials in a list for appending
+custom_mats = [water]
 
 try:
     # expected extension on the file read in by this script
     extension = ".shift_compositions.h5"
     filename = sys.argv[1]
     base_filename = filename[:-len(extension)]
+    filename_out = base_filename + ".shift_compositions-custom.h5"
 
     # load in the HDF5 file
     comps = load_hdf5_compositions(filename)
@@ -20,13 +32,18 @@ try:
     comps_list = [c._asdict() for c in comps]
 
     # add custom materials not already in the HDF5 file
-    comps_list.append(custom_mat._asdict())
+    for material in custom_mats:
+        comps_list.append(material._asdict())
+
+    print(len(comps_list))
 
     # convert comps_list from a list of dictionaries to a HDF5 compatible type
     h5_c = Compositions.from_list(comps_list)
 
-    # dump to HDF5
-    with h5.File("my_output.h5", 'w') as f:
+    # dump to HDF5. Because the output file is a different name, repeated
+    # application of this script to the same composition input file should not
+    # produce repeated custom materials in the output HDF5 file.
+    with h5.File(filename_out, 'w') as f:
         h5_c.dump(f)
 
 except:
