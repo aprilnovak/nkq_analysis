@@ -1,0 +1,64 @@
+! This is an Omnibus input corresponding to 2a.inp. For now, run a forward
+! calculation, i.e. with no deterministic acceleration. So, there is no [DENOVO]
+! or [HYBRID] blocks until the mode is hybrid. Also, there is no [SHIFT][VR]
+! block.
+
+! No [DEPLETION] card needed because we're taking the fission source from VERA
+! and there should be no significant depletion in the ex-core region.
+
+! Geometry will come both from RTK (in-core) and GG (ex-core), but for now this
+! input only models the in-core region.
+
+! [RESPONSE] block is not applicable unless mode is adjoint or hybrid. What does
+! this block do?
+
+
+[PROBLEM]
+name "Ex-core region for core from 2a_modified.inp"
+mode forward
+
+
+[COMP]
+compgen hdf5
+input "2a_modified.shift_compositions.h5"
+
+
+[MODEL=rtk]
+input "2a_modified.shift.rtk.xml"
+
+
+[RUN=mpi]
+np 1
+
+
+[SHIFT]
+np 500
+
+
+! set boundary conditions in SHIFT for the outer boundary
+[SHIFT][DECOMPOSITION=bmesh]
+boundary_condition vacuum vacuum vacuum vacuum vacuum vacuum
+x_partition 0.0 6.301
+y_partition 0.0 6.301
+z_partition 0.0 1.001
+
+
+[SOURCE=fissionmesh]
+description "fission source from VERA (2a.inp)"
+format source                                   ! format of hdf5 file?
+input "2a_modified.src-extracted.shift.h5"      ! use the form with the fission source extracted
+
+
+[TALLY]
+
+
+[TALLY][CYLMESH cyl_mesh]
+reactions flux
+r 0 0.5
+theta 0 1.0
+z 0.0 0.5
+
+
+[PHYSICS=sce scephysics]
+ce_lib ce_v7.1_endf
+mode n
