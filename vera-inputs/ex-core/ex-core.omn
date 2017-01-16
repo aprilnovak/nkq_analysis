@@ -10,7 +10,7 @@ mode forward
 ! doesn't use manipulated composition file
 [COMP]
 compgen hdf5
-input "ex-core.shift_compositions-original.h5"
+input "ex-core.shift_compositions-custom.h5"
 
 ![MODEL=rtk]
 !input "ex-core.shift.rtk.xml"
