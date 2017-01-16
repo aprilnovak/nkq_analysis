@@ -1,0 +1,57 @@
+[CASEID]
+  title 'fuel lattice'
+
+[STATE]
+  power    0.0
+  tinlet   565 K
+  tfuel    565 K
+  modden   0.743      ! g/cc
+  boron    1300       ! ppm
+  sym      full
+  feedback off
+
+[CORE]
+  size   1
+  apitch 6.3
+  height 1.0
+  rated  0.01 0.01
+  core_shape
+    1
+  assm_map
+    ASSY
+  bc_rad reflecting
+  bc_top reflecting
+  bc_bot reflecting
+
+[ASSEMBLY]
+  npin   5
+  ppitch 1.26
+  fuel U31 10.257 94.5 / 3.1 u-234 0.026347
+  cell 1 0.4096 0.418 0.475 / U31 he zirc4
+  cell 2 0.25 / U31
+  cell 3 0.1 0.2 0.3 / U31 he zirc4
+  lattice LAT
+    1 1 1 1 1
+    1 2 1 2 1
+    1 1 3 1 1
+    1 1 3 1 1
+    1 2 1 2 1
+  axial ASSY 0.0 LAT 1.0
+
+[MPACT]
+  num_space      1
+  num_angle     -8
+  num_threads    1
+
+[COBRATF]
+  beta_sp   0.005
+  parallel       0
+
+[SHIFT]
+  transport             ce
+  do_transport          false
+  do_output             true
+  output_geometry       true
+  output_fission_source true
+  problem_mode          forward
+  Np                    100
