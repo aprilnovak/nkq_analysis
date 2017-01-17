@@ -33,13 +33,12 @@ try:
 
     # convert comps to a list of dictionaries
     comps_list = [c._asdict() for c in comps]
-    print(comps_list[5])
 
     # add names for all the VERA materials
-    #matid = 0
-    #for c in comps_list:
-    #    c['name'] = matid
-    #    matid += 1
+    matid = 0
+    for c in comps_list:
+        c['name'] = matid
+        matid += 1
 
     # add custom materials not already in the HDF5 file
     for material in custom_mats:
@@ -51,7 +50,7 @@ try:
         added['matid'] = matid_number
 
         # add names for all the new materials
-        #added['name'] = matid_number
+        added['name'] = matid_number
         matid_number += 1
 
     final_number = len(comps_list)
