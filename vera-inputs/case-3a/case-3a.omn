@@ -2,7 +2,7 @@
 ! is to try to get the correct units in tallies.
 
 [PROBLEM]
-name "case-3a.inp""
+name "case-3a.inp"
 mode forward
 
 
