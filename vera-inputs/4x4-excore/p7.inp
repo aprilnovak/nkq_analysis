@@ -42,13 +42,13 @@
 
   assm_map
     1
-    2 1
-    1 2 1
-    2 1 2 1
-    1 2 1 2 2
-    2 1 2 1 2 3
-    1 3 1 3 3 3 
-    3 3 3 3 
+    1 1
+    1 1 1
+    1 1 1 1
+    1 1 1 1 1
+    1 1 1 1 1 1
+    1 1 1 1 1 1 
+    1 1 1 1 
 
 
   vessel  mod 187.96        ! barrel IR (cm) 
@@ -74,12 +74,8 @@
   ppitch 1.260
   
   fuel U21 10.257 94.5 / 2.110 u-234 0.017364
-  fuel U26 10.257 94.5 / 2.619 u-234 0.021947
-  fuel U31 10.257 94.5 / 3.100 u-234 0.026347 
 
   cell 1     0.4096 0.418 0.475 / U21 he zirc4
-  cell 2     0.4096 0.418 0.475 / U26 he zirc4
-  cell 3     0.4096 0.418 0.475 / U31 he zirc4
   cell 4            0.561 0.602 / mod    zirc4      ! guide/instrument tube
   cell 5            0.418 0.475 /     he zirc4      ! plenum
   cell 6                  0.475 /        zirc4      ! plug
@@ -95,29 +91,6 @@
        4 1 1 4 1 1 1
        1 1 1 1 1 1 1 1
        1 1 1 1 1 1 1 1 1
-
-  lattice LAT26  
-       4
-       2 2
-       2 2 2
-       4 2 2 4
-       2 2 2 2 2
-       2 2 2 2 2 4
-       4 2 2 4 2 2 2
-       2 2 2 2 2 2 2 2
-       2 2 2 2 2 2 2 2 2
-
-  lattice LAT31 
-       4
-       3 3
-       3 3 3
-       4 3 3 4
-       3 3 3 3 3
-       3 3 3 3 3 4
-       4 3 3 4 3 3 3
-       3 3 3 3 3 3 3 3
-       3 3 3 3 3 3 3 3 3
-
   lattice PLEN
        4
        5 5
@@ -152,8 +125,6 @@
        7 7 7 7 7 7 7 7 7
 
   axial  1  6.053 GAP 10.281 PLUG 11.951 LAT21 377.711 PLEN 393.711 PLUG 395.381 GAP 397.51
-  axial  2  6.053 GAP 10.281 PLUG 11.951 LAT26 377.711 PLEN 393.711 PLUG 395.381 GAP 397.51
-  axial  3  6.053 GAP 10.281 PLUG 11.951 LAT31 377.711 PLEN 393.711 PLUG 395.381 GAP 397.51
 
   grid END inc    3.866 1017 0.9070 ! grid height (cm), mass (g), loss coef
   grid MID zirc4  3.810 875  0.9065 ! grid height (cm), mass (g), loss coef
