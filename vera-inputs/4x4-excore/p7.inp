@@ -12,14 +12,6 @@
   !search   boron
   !xenon    equil        ! equilibrium xenon
 
-  rodbank SA 230
-          SB 230
-          SC 230
-          SD 230
-           A 230 
-           B 230
-           C 230 
-           D 215 
 
   boron    1200         ! ppm
   tfuel    900 K 
@@ -67,27 +59,6 @@
     20  - 16  - 24 12
      - 24  - 16  - TP
     12 TP  8 TP
-
-  crd_map
-    1 
-    - - 
-    1 - 1 
-    - - - 1 
-    1 - - - 1 
-    - 1 - 1 - - 
-    1 - 1 - 1 - 
-    - - - - 
- 
-  crd_bank
-    D  -  A  -  D  -  C  -
-    -  -  -  -  - SB  -  -
-    A  -  C  -  -  -  B  -
-    -  -  -  A  - SC  -  -
-    D  -  -  -  D  - SA 
-    - SB  - SD  -  -  - 
-    C  -  B  - SA  - 
-    -  -  -  -
-
 
   vessel  mod 187.96        ! barrel IR (cm) 
            ss 193.68        ! barrel OR (cm)
@@ -446,66 +417,6 @@
   axial  24  13.221 PG24 15.761 PY24 376.441 PL24             398.641
   axial  TP                                       383.31 TP24 394.31
 
-[CONTROL]
-  title "B4C with AIC tips"
-  npin 17
-  stroke  365.125 230     ! approx for 1.5875 step sizes and 230 max stroke
-
-  cell A  0.382 0.386 0.484 / aic he ss
-  cell B  0.373 0.386 0.484 / b4c he ss
-  cell P        0.386 0.484 /     he ss ! plenum
-  cell G              0.484 /        ss ! plug   
-
-  rodmap AIC
-     -
-     - -
-     - - -
-     A - - A
-     - - - - -
-     - - - - - A
-     A - - A - - -
-     - - - - - - - -
-     - - - - - - - - -
-
-  rodmap B4C
-     -
-     - -
-     - - -
-     B - - B
-     - - - - -
-     - - - - - B
-     B - - B - - -
-     - - - - - - - -
-     - - - - - - - - -
-
-  rodmap PLEN
-     -
-     - -
-     - - -
-     P - - P
-     - - - - -
-     - - - - - P
-     P - - P - - -
-     - - - - - - - -
-     - - - - - - - - -
-
-  rodmap PLUG
-     -
-     - -
-     - - -
-     G - - G
-     - - - - -
-     - - - - - G
-     G - - G - - -
-     - - - - - - - -
-     - - - - - - - - -
-
-  axial  1    15.131
-        PLUG  17.031 
-         AIC 118.631 
-         B4C 377.711 
-        PLEN 388.411
-        PLUG 390.311
 
 
 [EDITS]
