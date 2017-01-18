@@ -14,7 +14,7 @@ Nuclide_Metadata.load_SCL()
 #                               depletable? (TRUE or FALSE (default)))
 
 # CUSTOM MATERIAL DEFINITIONS
-water = Composition(300.0, [1001, 1002, 8016, 8017], [6.67e-2, 7.67e-6, 3.32e-2, 1.26e-5])
+water = Composition(300.0, [92235, 1002, 8016, 8017], [6.67e-1, 7.67e-6, 3.32e-2, 1.26e-5])
 
 # put custom materials in a list for appending
 custom_mats = [water]
