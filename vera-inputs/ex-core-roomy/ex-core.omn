@@ -52,4 +52,4 @@ mode n
 
 !################################### GEOMETRY ##################################
 [MODEL=gg]
-input "ex-core.gg.omn"
+input "ex-core-2.gg.omn"
