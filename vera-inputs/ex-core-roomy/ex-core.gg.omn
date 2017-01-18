@@ -3,14 +3,14 @@
 global "reactor"
 
 !##################################### RTK #####################################
-[UNIVERSE=rtkarray core-array]
+[UNIVERSE=rtkarray rtk_fuel]
 boundary "outer"
 input "ex-core.shift.rtk.xml"
 
 [UNIVERSE][SHAPE=cyl outer]
-radius 2.0
+radius 9.75
 extents 0 1.0
-origin 3.15 3.15 0.0
+origin 9.75 9.75 0.0
 axis z
 
 !##################################### ex-core #################################
@@ -18,13 +18,13 @@ axis z
 boundary "barrel"
 
 [UNIVERSE][SHAPE=cyl barrel]
-radius 4.0
+radius 10.75
 extents 0 1.0
-origin 3.15 3.15 0.0
+origin 9.75 9.75 0.0
 axis z
 
 [UNIVERSE][HOLE just_fuel]
-fill core-array
+fill rtk_fuel
 
 [UNIVERSE][CELL steel_barrel]
 comp 10

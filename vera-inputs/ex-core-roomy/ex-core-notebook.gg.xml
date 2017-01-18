@@ -1,0 +1,54 @@
+<ParameterList name="Teuchos XML input">
+  <ParameterList name="GEOMETRY">
+    <Parameter name="global" type="string" value="reactor"/>
+    <Parameter name="deduplication_warning" type="bool" value="false"/>
+    <Parameter name="tolerance" type="double" value="1e-08"/>
+    <Parameter name="length_scale" type="double" value="1.0"/>
+  </ParameterList>
+  <ParameterList name="UNIVERSE">
+    <ParameterList name="core-array">
+      <Parameter name="_type" type="string" value="rtkarray"/>
+      <Parameter name="name" type="string" value="core-array"/>
+      <Parameter name="input" type="string" value="/Users/aprilnovak/Mounts/orthanc/projects/nkq_analysis/vera-inputs/ex-core-roomy/ex-core.shift.rtk.xml"/>
+      <ParameterList name="SHAPE">
+        <ParameterList name="outer">
+          <Parameter name="_type" type="string" value="cyl"/>
+          <Parameter name="name" type="string" value="outer"/>
+          <Parameter name="translate" type="Array(double)" value="{9.75,9.75,0.0}"/>
+          <Parameter name="axis" type="int" value="2"/>
+          <Parameter name="extents" type="Array(double)" value="{0.0,1.0}"/>
+          <Parameter name="radius" type="double" value="9.75"/>
+        </ParameterList>
+      </ParameterList>
+      <Parameter name="interior" type="Array(string)" value="{-outer}"/>
+    </ParameterList>
+    <ParameterList name="reactor">
+      <Parameter name="_type" type="string" value="general"/>
+      <Parameter name="name" type="string" value="reactor"/>
+      <ParameterList name="SHAPE">
+        <ParameterList name="barrel">
+          <Parameter name="_type" type="string" value="cyl"/>
+          <Parameter name="name" type="string" value="barrel"/>
+          <Parameter name="translate" type="Array(double)" value="{9.75,9.75,0.0}"/>
+          <Parameter name="axis" type="int" value="2"/>
+          <Parameter name="extents" type="Array(double)" value="{0.0,1.0}"/>
+          <Parameter name="radius" type="double" value="10.75"/>
+        </ParameterList>
+      </ParameterList>
+      <ParameterList name="CELL">
+        <ParameterList name="steel_barrel">
+          <Parameter name="name" type="string" value="steel_barrel"/>
+          <Parameter name="composition" type="string" value="10"/>
+          <Parameter name="shapes" type="Array(string)" value="{+just_fuel,-barrel}"/>
+        </ParameterList>
+      </ParameterList>
+      <ParameterList name="HOLE">
+        <ParameterList name="just_fuel">
+          <Parameter name="name" type="string" value="just_fuel"/>
+          <Parameter name="fill" type="string" value="core-array"/>
+        </ParameterList>
+      </ParameterList>
+      <Parameter name="interior" type="Array(string)" value="{-barrel}"/>
+    </ParameterList>
+  </ParameterList>
+</ParameterList>
