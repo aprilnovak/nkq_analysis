@@ -12,3 +12,6 @@ os.system("python ~/projects/nkq_analysis/python-scripts/insert-create-unique-pi
 
 # run the vera_to_shift executable
 os.system("mpirun -np 12 ~/builds/PSSDriversExt/VeraShift/src/vera_to_shift --case=\"{0}\"".format(base_filename))
+
+# extract the fission source
+os.system("python ~/projects/nkq_analysis/python-scripts/extract-fission-source.py {0}.shift.h5".format(base_filename))
