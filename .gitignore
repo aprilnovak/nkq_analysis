@@ -8,6 +8,8 @@
 *.silo
 *omnibus-2017*
 *out-2017*
+*.out
 *omnibus.out
 *.rst
+*.shift_geo*
 *.xmf
