@@ -1,0 +1,171 @@
+<ParameterList name="test-automation.shift">
+  <ParameterList id="7" name="CORE">
+    <Parameter docString="" id="0" isDefault="false" isUsed="true" name="level_0" type="TwoDArray(int)" value="1x1:{0}"/>
+    <Parameter docString="" id="1" isDefault="false" isUsed="true" name="axial list" type="Array(string)" value="{level_0}"/>
+    <Parameter docString="" id="2" isDefault="false" isUsed="true" name="axial height" type="Array(double)" value="{1.00000000000000000e+00}"/>
+    <Parameter docString="" id="3" isDefault="false" isUsed="true" name="corner" type="Array(double)" value="{0.00000000000000000e+00, 0.00000000000000000e+00, 0.00000000000000000e+00}"/>
+    <Parameter docString="" id="4" isDefault="false" isUsed="true" name="boundary" type="string" value="reflect"/>
+    <ParameterList id="6" name="boundary_db">
+      <Parameter docString="" id="5" isDefault="false" isUsed="true" name="reflect" type="Array(int)" value="{1, 1, 1, 1, 1, 1}"/>
+    </ParameterList>
+  </ParameterList>
+  <ParameterList id="10" name="ASSEMBLIES">
+    <Parameter docString="" id="8" isDefault="false" isUsed="true" name="assembly_0" type="TwoDArray(int)" value="5x5:{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24}"/>
+    <Parameter docString="" id="9" isDefault="false" isUsed="true" name="assembly list" type="Array(string)" value="{assembly_0}"/>
+  </ParameterList>
+  <ParameterList id="137" name="PINS">
+    <Parameter docString="" id="11" isDefault="true" isUsed="true" name="pin list" type="Array(string)" value="{pin_0, pin_1, pin_2, pin_3, pin_4, pin_5, pin_6, pin_7, pin_8, pin_9, pin_10, pin_11, pin_12, pin_13, pin_14, pin_15, pin_16, pin_17, pin_18, pin_19, pin_20, pin_21, pin_22, pin_23, pin_24}"/>
+    <ParameterList id="16" name="pin_0">
+      <Parameter docString="" id="12" isDefault="false" isUsed="true" name="pitch" type="double" value="1.26000000000000001e+00"/>
+      <Parameter docString="" id="13" isDefault="false" isUsed="true" name="radii" type="Array(double)" value="{4.09600000000000020e-01, 4.17999999999999983e-01, 4.74999999999999978e-01}"/>
+      <Parameter docString="" id="14" isDefault="false" isUsed="true" name="radial matids" type="Array(int)" value="{1, 2, 3}"/>
+      <Parameter docString="" id="15" isDefault="false" isUsed="true" name="matid" type="int" value="4"/>
+    </ParameterList>
+    <ParameterList id="21" name="pin_1">
+      <Parameter docString="" id="17" isDefault="false" isUsed="true" name="pitch" type="double" value="1.26000000000000001e+00"/>
+      <Parameter docString="" id="18" isDefault="false" isUsed="true" name="radii" type="Array(double)" value="{4.09600000000000020e-01, 4.17999999999999983e-01, 4.74999999999999978e-01}"/>
+      <Parameter docString="" id="19" isDefault="false" isUsed="true" name="radial matids" type="Array(int)" value="{21, 22, 23}"/>
+      <Parameter docString="" id="20" isDefault="false" isUsed="true" name="matid" type="int" value="24"/>
+    </ParameterList>
+    <ParameterList id="26" name="pin_2">
+      <Parameter docString="" id="22" isDefault="false" isUsed="true" name="pitch" type="double" value="1.26000000000000001e+00"/>
+      <Parameter docString="" id="23" isDefault="false" isUsed="true" name="radii" type="Array(double)" value="{4.09600000000000020e-01, 4.17999999999999983e-01, 4.74999999999999978e-01}"/>
+      <Parameter docString="" id="24" isDefault="false" isUsed="true" name="radial matids" type="Array(int)" value="{41, 42, 43}"/>
+      <Parameter docString="" id="25" isDefault="false" isUsed="true" name="matid" type="int" value="44"/>
+    </ParameterList>
+    <ParameterList id="31" name="pin_3">
+      <Parameter docString="" id="27" isDefault="false" isUsed="true" name="pitch" type="double" value="1.26000000000000001e+00"/>
+      <Parameter docString="" id="28" isDefault="false" isUsed="true" name="radii" type="Array(double)" value="{2.50000000000000000e-01}"/>
+      <Parameter docString="" id="29" isDefault="false" isUsed="true" name="radial matids" type="Array(int)" value="{61}"/>
+      <Parameter docString="" id="30" isDefault="false" isUsed="true" name="matid" type="int" value="62"/>
+    </ParameterList>
+    <ParameterList id="36" name="pin_4">
+      <Parameter docString="" id="32" isDefault="false" isUsed="true" name="pitch" type="double" value="1.26000000000000001e+00"/>
+      <Parameter docString="" id="33" isDefault="false" isUsed="true" name="radii" type="Array(double)" value="{4.09600000000000020e-01, 4.17999999999999983e-01, 4.74999999999999978e-01}"/>
+      <Parameter docString="" id="34" isDefault="false" isUsed="true" name="radial matids" type="Array(int)" value="{79, 80, 81}"/>
+      <Parameter docString="" id="35" isDefault="false" isUsed="true" name="matid" type="int" value="82"/>
+    </ParameterList>
+    <ParameterList id="41" name="pin_5">
+      <Parameter docString="" id="37" isDefault="false" isUsed="true" name="pitch" type="double" value="1.26000000000000001e+00"/>
+      <Parameter docString="" id="38" isDefault="false" isUsed="true" name="radii" type="Array(double)" value="{4.09600000000000020e-01, 4.17999999999999983e-01, 4.74999999999999978e-01}"/>
+      <Parameter docString="" id="39" isDefault="false" isUsed="true" name="radial matids" type="Array(int)" value="{5, 6, 7}"/>
+      <Parameter docString="" id="40" isDefault="false" isUsed="true" name="matid" type="int" value="8"/>
+    </ParameterList>
+    <ParameterList id="46" name="pin_6">
+      <Parameter docString="" id="42" isDefault="false" isUsed="true" name="pitch" type="double" value="1.26000000000000001e+00"/>
+      <Parameter docString="" id="43" isDefault="false" isUsed="true" name="radii" type="Array(double)" value="{4.09600000000000020e-01, 4.17999999999999983e-01, 4.74999999999999978e-01}"/>
+      <Parameter docString="" id="44" isDefault="false" isUsed="true" name="radial matids" type="Array(int)" value="{25, 26, 27}"/>
+      <Parameter docString="" id="45" isDefault="false" isUsed="true" name="matid" type="int" value="28"/>
+    </ParameterList>
+    <ParameterList id="51" name="pin_7">
+      <Parameter docString="" id="47" isDefault="false" isUsed="true" name="pitch" type="double" value="1.26000000000000001e+00"/>
+      <Parameter docString="" id="48" isDefault="false" isUsed="true" name="radii" type="Array(double)" value="{4.09600000000000020e-01, 4.17999999999999983e-01, 4.74999999999999978e-01}"/>
+      <Parameter docString="" id="49" isDefault="false" isUsed="true" name="radial matids" type="Array(int)" value="{45, 46, 47}"/>
+      <Parameter docString="" id="50" isDefault="false" isUsed="true" name="matid" type="int" value="48"/>
+    </ParameterList>
+    <ParameterList id="56" name="pin_8">
+      <Parameter docString="" id="52" isDefault="false" isUsed="true" name="pitch" type="double" value="1.26000000000000001e+00"/>
+      <Parameter docString="" id="53" isDefault="false" isUsed="true" name="radii" type="Array(double)" value="{4.09600000000000020e-01, 4.17999999999999983e-01, 4.74999999999999978e-01}"/>
+      <Parameter docString="" id="54" isDefault="false" isUsed="true" name="radial matids" type="Array(int)" value="{63, 64, 65}"/>
+      <Parameter docString="" id="55" isDefault="false" isUsed="true" name="matid" type="int" value="66"/>
+    </ParameterList>
+    <ParameterList id="61" name="pin_9">
+      <Parameter docString="" id="57" isDefault="false" isUsed="true" name="pitch" type="double" value="1.26000000000000001e+00"/>
+      <Parameter docString="" id="58" isDefault="false" isUsed="true" name="radii" type="Array(double)" value="{4.09600000000000020e-01, 4.17999999999999983e-01, 4.74999999999999978e-01}"/>
+      <Parameter docString="" id="59" isDefault="false" isUsed="true" name="radial matids" type="Array(int)" value="{83, 84, 85}"/>
+      <Parameter docString="" id="60" isDefault="false" isUsed="true" name="matid" type="int" value="86"/>
+    </ParameterList>
+    <ParameterList id="66" name="pin_10">
+      <Parameter docString="" id="62" isDefault="false" isUsed="true" name="pitch" type="double" value="1.26000000000000001e+00"/>
+      <Parameter docString="" id="63" isDefault="false" isUsed="true" name="radii" type="Array(double)" value="{4.09600000000000020e-01, 4.17999999999999983e-01, 4.74999999999999978e-01}"/>
+      <Parameter docString="" id="64" isDefault="false" isUsed="true" name="radial matids" type="Array(int)" value="{9, 10, 11}"/>
+      <Parameter docString="" id="65" isDefault="false" isUsed="true" name="matid" type="int" value="12"/>
+    </ParameterList>
+    <ParameterList id="71" name="pin_11">
+      <Parameter docString="" id="67" isDefault="false" isUsed="true" name="pitch" type="double" value="1.26000000000000001e+00"/>
+      <Parameter docString="" id="68" isDefault="false" isUsed="true" name="radii" type="Array(double)" value="{4.09600000000000020e-01, 4.17999999999999983e-01, 4.74999999999999978e-01}"/>
+      <Parameter docString="" id="69" isDefault="false" isUsed="true" name="radial matids" type="Array(int)" value="{29, 30, 31}"/>
+      <Parameter docString="" id="70" isDefault="false" isUsed="true" name="matid" type="int" value="32"/>
+    </ParameterList>
+    <ParameterList id="76" name="pin_12">
+      <Parameter docString="" id="72" isDefault="false" isUsed="true" name="pitch" type="double" value="1.26000000000000001e+00"/>
+      <Parameter docString="" id="73" isDefault="false" isUsed="true" name="radii" type="Array(double)" value="{4.09600000000000020e-01, 4.17999999999999983e-01, 4.74999999999999978e-01}"/>
+      <Parameter docString="" id="74" isDefault="false" isUsed="true" name="radial matids" type="Array(int)" value="{49, 50, 51}"/>
+      <Parameter docString="" id="75" isDefault="false" isUsed="true" name="matid" type="int" value="52"/>
+    </ParameterList>
+    <ParameterList id="81" name="pin_13">
+      <Parameter docString="" id="77" isDefault="false" isUsed="true" name="pitch" type="double" value="1.26000000000000001e+00"/>
+      <Parameter docString="" id="78" isDefault="false" isUsed="true" name="radii" type="Array(double)" value="{4.09600000000000020e-01, 4.17999999999999983e-01, 4.74999999999999978e-01}"/>
+      <Parameter docString="" id="79" isDefault="false" isUsed="true" name="radial matids" type="Array(int)" value="{67, 68, 69}"/>
+      <Parameter docString="" id="80" isDefault="false" isUsed="true" name="matid" type="int" value="70"/>
+    </ParameterList>
+    <ParameterList id="86" name="pin_14">
+      <Parameter docString="" id="82" isDefault="false" isUsed="true" name="pitch" type="double" value="1.26000000000000001e+00"/>
+      <Parameter docString="" id="83" isDefault="false" isUsed="true" name="radii" type="Array(double)" value="{4.09600000000000020e-01, 4.17999999999999983e-01, 4.74999999999999978e-01}"/>
+      <Parameter docString="" id="84" isDefault="false" isUsed="true" name="radial matids" type="Array(int)" value="{87, 88, 89}"/>
+      <Parameter docString="" id="85" isDefault="false" isUsed="true" name="matid" type="int" value="90"/>
+    </ParameterList>
+    <ParameterList id="91" name="pin_15">
+      <Parameter docString="" id="87" isDefault="false" isUsed="true" name="pitch" type="double" value="1.26000000000000001e+00"/>
+      <Parameter docString="" id="88" isDefault="false" isUsed="true" name="radii" type="Array(double)" value="{4.09600000000000020e-01, 4.17999999999999983e-01, 4.74999999999999978e-01}"/>
+      <Parameter docString="" id="89" isDefault="false" isUsed="true" name="radial matids" type="Array(int)" value="{13, 14, 15}"/>
+      <Parameter docString="" id="90" isDefault="false" isUsed="true" name="matid" type="int" value="16"/>
+    </ParameterList>
+    <ParameterList id="96" name="pin_16">
+      <Parameter docString="" id="92" isDefault="false" isUsed="true" name="pitch" type="double" value="1.26000000000000001e+00"/>
+      <Parameter docString="" id="93" isDefault="false" isUsed="true" name="radii" type="Array(double)" value="{4.09600000000000020e-01, 4.17999999999999983e-01, 4.74999999999999978e-01}"/>
+      <Parameter docString="" id="94" isDefault="false" isUsed="true" name="radial matids" type="Array(int)" value="{33, 34, 35}"/>
+      <Parameter docString="" id="95" isDefault="false" isUsed="true" name="matid" type="int" value="36"/>
+    </ParameterList>
+    <ParameterList id="101" name="pin_17">
+      <Parameter docString="" id="97" isDefault="false" isUsed="true" name="pitch" type="double" value="1.26000000000000001e+00"/>
+      <Parameter docString="" id="98" isDefault="false" isUsed="true" name="radii" type="Array(double)" value="{4.09600000000000020e-01, 4.17999999999999983e-01, 4.74999999999999978e-01}"/>
+      <Parameter docString="" id="99" isDefault="false" isUsed="true" name="radial matids" type="Array(int)" value="{53, 54, 55}"/>
+      <Parameter docString="" id="100" isDefault="false" isUsed="true" name="matid" type="int" value="56"/>
+    </ParameterList>
+    <ParameterList id="106" name="pin_18">
+      <Parameter docString="" id="102" isDefault="false" isUsed="true" name="pitch" type="double" value="1.26000000000000001e+00"/>
+      <Parameter docString="" id="103" isDefault="false" isUsed="true" name="radii" type="Array(double)" value="{4.09600000000000020e-01, 4.17999999999999983e-01, 4.74999999999999978e-01}"/>
+      <Parameter docString="" id="104" isDefault="false" isUsed="true" name="radial matids" type="Array(int)" value="{71, 72, 73}"/>
+      <Parameter docString="" id="105" isDefault="false" isUsed="true" name="matid" type="int" value="74"/>
+    </ParameterList>
+    <ParameterList id="111" name="pin_19">
+      <Parameter docString="" id="107" isDefault="false" isUsed="true" name="pitch" type="double" value="1.26000000000000001e+00"/>
+      <Parameter docString="" id="108" isDefault="false" isUsed="true" name="radii" type="Array(double)" value="{4.09600000000000020e-01, 4.17999999999999983e-01, 4.74999999999999978e-01}"/>
+      <Parameter docString="" id="109" isDefault="false" isUsed="true" name="radial matids" type="Array(int)" value="{91, 92, 93}"/>
+      <Parameter docString="" id="110" isDefault="false" isUsed="true" name="matid" type="int" value="94"/>
+    </ParameterList>
+    <ParameterList id="116" name="pin_20">
+      <Parameter docString="" id="112" isDefault="false" isUsed="true" name="pitch" type="double" value="1.26000000000000001e+00"/>
+      <Parameter docString="" id="113" isDefault="false" isUsed="true" name="radii" type="Array(double)" value="{4.09600000000000020e-01, 4.17999999999999983e-01, 4.74999999999999978e-01}"/>
+      <Parameter docString="" id="114" isDefault="false" isUsed="true" name="radial matids" type="Array(int)" value="{17, 18, 19}"/>
+      <Parameter docString="" id="115" isDefault="false" isUsed="true" name="matid" type="int" value="20"/>
+    </ParameterList>
+    <ParameterList id="121" name="pin_21">
+      <Parameter docString="" id="117" isDefault="false" isUsed="true" name="pitch" type="double" value="1.26000000000000001e+00"/>
+      <Parameter docString="" id="118" isDefault="false" isUsed="true" name="radii" type="Array(double)" value="{4.09600000000000020e-01, 4.17999999999999983e-01, 4.74999999999999978e-01}"/>
+      <Parameter docString="" id="119" isDefault="false" isUsed="true" name="radial matids" type="Array(int)" value="{37, 38, 39}"/>
+      <Parameter docString="" id="120" isDefault="false" isUsed="true" name="matid" type="int" value="40"/>
+    </ParameterList>
+    <ParameterList id="126" name="pin_22">
+      <Parameter docString="" id="122" isDefault="false" isUsed="true" name="pitch" type="double" value="1.26000000000000001e+00"/>
+      <Parameter docString="" id="123" isDefault="false" isUsed="true" name="radii" type="Array(double)" value="{4.09600000000000020e-01, 4.17999999999999983e-01, 4.74999999999999978e-01}"/>
+      <Parameter docString="" id="124" isDefault="false" isUsed="true" name="radial matids" type="Array(int)" value="{57, 58, 59}"/>
+      <Parameter docString="" id="125" isDefault="false" isUsed="true" name="matid" type="int" value="60"/>
+    </ParameterList>
+    <ParameterList id="131" name="pin_23">
+      <Parameter docString="" id="127" isDefault="false" isUsed="true" name="pitch" type="double" value="1.26000000000000001e+00"/>
+      <Parameter docString="" id="128" isDefault="false" isUsed="true" name="radii" type="Array(double)" value="{4.09600000000000020e-01, 4.17999999999999983e-01, 4.74999999999999978e-01}"/>
+      <Parameter docString="" id="129" isDefault="false" isUsed="true" name="radial matids" type="Array(int)" value="{75, 76, 77}"/>
+      <Parameter docString="" id="130" isDefault="false" isUsed="true" name="matid" type="int" value="78"/>
+    </ParameterList>
+    <ParameterList id="136" name="pin_24">
+      <Parameter docString="" id="132" isDefault="false" isUsed="true" name="pitch" type="double" value="1.26000000000000001e+00"/>
+      <Parameter docString="" id="133" isDefault="false" isUsed="true" name="radii" type="Array(double)" value="{4.09600000000000020e-01, 4.17999999999999983e-01, 4.74999999999999978e-01}"/>
+      <Parameter docString="" id="134" isDefault="false" isUsed="true" name="radial matids" type="Array(int)" value="{95, 96, 97}"/>
+      <Parameter docString="" id="135" isDefault="false" isUsed="true" name="matid" type="int" value="98"/>
+    </ParameterList>
+  </ParameterList>
+  <Validators/>
+</ParameterList>
+
