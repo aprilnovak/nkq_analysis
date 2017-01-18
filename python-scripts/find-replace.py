@@ -4,8 +4,9 @@ filename = sys.argv[1]
 
 base_filename = filename[:-7]
 
-find = "rtk_fuel"
-replace = "core-array"
+find = sys.argv[2]
+replace = sys.argv[3]
+print(find + replace)
 
 with open(filename, 'r') as fi:
     with open(base_filename + "-replaced.gg.xml", 'w') as fo:
