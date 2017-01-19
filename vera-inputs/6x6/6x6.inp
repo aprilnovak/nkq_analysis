@@ -17,20 +17,20 @@
   rated  0.01 0.01
 
   core_shape
-    0 0 1 1 0 0
-    0 1 1 1 1 0
     1 1 1 1 1 1
     1 1 1 1 1 1
-    0 1 1 1 1 0
-    0 0 1 1 0 0
+    1 1 1 1 1 1
+    1 1 1 1 1 1
+    1 1 1 1 1 1
+    1 1 1 1 1 1
 
   assm_map
-              ASSY ASSY
-         ASSY ASSY ASSY ASSY
     ASSY ASSY ASSY ASSY ASSY ASSY
     ASSY ASSY ASSY ASSY ASSY ASSY
-         ASSY ASSY ASSY ASSY
-              ASSY ASSY  
+    ASSY ASSY ASSY ASSY ASSY ASSY
+    ASSY ASSY ASSY ASSY ASSY ASSY
+    ASSY ASSY ASSY ASSY ASSY ASSY
+    ASSY ASSY ASSY ASSY ASSY ASSY  
 
 
   bc_rad vacuum
@@ -38,7 +38,7 @@
   bc_bot reflecting
 
   baffle ss 1.0 2.0
-  vessel mod 100.0 ss 101.0
+  vessel mod 1000.0 ss 1001.0
 
 [ASSEMBLY]
   npin   5
