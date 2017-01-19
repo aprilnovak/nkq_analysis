@@ -9,7 +9,7 @@ mode forward
 
 [COMP]
 compgen hdf5
-input "ex-core.shift_compositions-custom.h5"
+input "test-automation.shift_compositions-custom.h5"
 
 [RUN=mpi]
 np 1
@@ -26,7 +26,7 @@ z_partition 0.0 1.00001
 
 [SOURCE=fissionmesh]
 format source
-input "ex-core.src-extracted.shift.h5"
+input "test-automation.src-extracted.shift.h5"
 
 [TALLY]
 
@@ -44,4 +44,4 @@ mode n
 
 !################################### GEOMETRY ##################################
 [MODEL=gg]
-input "ex-core.gg.omn"
+input "test-automation.gg.omn"

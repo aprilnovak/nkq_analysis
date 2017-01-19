@@ -5,7 +5,7 @@ global "reactor"
 !##################################### RTK #####################################
 [UNIVERSE=rtkarray rtk_fuel]
 boundary "outer"
-input "ex-core.shift.rtk.xml"
+input "test-automation.shift.rtk.xml"
 
 [UNIVERSE][SHAPE=cyl outer]
 radius 9.75
