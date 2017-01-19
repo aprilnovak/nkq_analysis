@@ -26,7 +26,7 @@ origin 0.0 0.0 0.0
 fill rtk_fuel
 
 [UNIVERSE][CELL mod]
-comp 101
+comp 99
 shapes +just_fuel -inner_baffle
 
 [UNIVERSE][CELL cs]
@@ -57,5 +57,5 @@ comp 2
 shapes +inner -inner_barrel
 
 [UNIVERSE][CELL steel]
-comp 79
+comp 101
 shapes +inner_barrel -outer_barrel

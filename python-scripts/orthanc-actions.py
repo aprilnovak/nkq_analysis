@@ -26,4 +26,4 @@ os.system("python ~/projects/nkq_analysis/python-scripts/find-replace.py {0}.gg.
 os.system("python ~/projects/nkq_analysis/python-scripts/find-replace-path.py {0}-replaced.gg.xml /home/nkq/ /Users/aprilnovak/Mounts/orthanc/".format(base_filename))
 
 # perform unneccessary clean up actions
-os.system("rm *2017*.rst *.inp-2017* *.out-2017* *.json *.mesh_tally-2017*")
+os.system("rm *omnibus-2017* *2017*.rst *.inp-2017* *.out-2017* *.json *.mesh_tally-2017*")
