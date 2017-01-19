@@ -37,8 +37,8 @@
   bc_top reflecting
   bc_bot reflecting
 
-  !baffle ss 1.0 2.0
-  !vessel mod 9.0 ss 10.0 ! toggle this line off to get the no-vessel case
+  baffle ss 1.0 2.0
+  vessel mod 100.0 ss 101.0
 
 [ASSEMBLY]
   npin   5
