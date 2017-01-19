@@ -22,12 +22,12 @@
   assm_map
     ASSY
 
-  bc_rad reflecting
+  bc_rad vacuum
   bc_top reflecting
   bc_bot reflecting
 
   baffle ss 1.0 2.0
-  vessel mod 15.0 ss 20.0
+  vessel mod 2000.0 ss 2001.0 ! toggle this line off to get the no-vessel case
 
 [ASSEMBLY]
   npin   5
