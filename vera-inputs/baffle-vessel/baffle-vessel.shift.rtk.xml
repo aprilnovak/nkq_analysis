@@ -6,7 +6,7 @@
     <Parameter docString="" id="3" isDefault="false" isUsed="true" name="corner" type="Array(double)" value="{0.00000000000000000e+00, 0.00000000000000000e+00, 0.00000000000000000e+00}"/>
     <Parameter docString="" id="4" isDefault="false" isUsed="true" name="boundary" type="string" value="reflect"/>
     <ParameterList id="6" name="boundary_db">
-      <Parameter docString="" id="5" isDefault="false" isUsed="true" name="reflect" type="Array(int)" value="{1, 1, 1, 1, 1, 1}"/>
+      <Parameter docString="" id="5" isDefault="false" isUsed="true" name="reflect" type="Array(int)" value="{0, 0, 0, 0, 1, 1}"/>
     </ParameterList>
   </ParameterList>
   <ParameterList id="10" name="ASSEMBLIES">
