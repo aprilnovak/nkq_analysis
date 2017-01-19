@@ -30,7 +30,7 @@
     ASSY ASSY ASSY ASSY ASSY ASSY
     ASSY ASSY ASSY ASSY ASSY ASSY
     ASSY ASSY ASSY ASSY ASSY ASSY
-    ASSY ASSY ASSY ASSY ASSY ASSY  
+    ASSY ASSY ASSY ASSY ASSY ASSY
 
 
   bc_rad vacuum
@@ -38,7 +38,7 @@
   bc_bot reflecting
 
   baffle ss 1.0 2.0
-  vessel mod 1000.0 ss 1001.0
+  vessel mod 30.0 ss 31.0
 
 [ASSEMBLY]
   npin   5
