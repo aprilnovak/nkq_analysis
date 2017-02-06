@@ -1,0 +1,44 @@
+[PROBLEM]
+name "Omnibus input 1 for multi-state run"
+mode forward
+
+[COMP]
+compgen hdf5
+input "multi-state-1.shift_compositions-custom.h5"
+
+[RUN=mpi]
+np 1
+
+[SHIFT]
+np 1000
+
+! set boundary conditions in SHIFT for the outer boundary
+[SHIFT][DECOMPOSITION=bmesh]
+boundary_condition vacuum vacuum vacuum vacuum vacuum vacuum
+x_partition 0.0 6.30001
+y_partition 0.0 6.30001
+z_partition 0.0 1.00001
+
+[SOURCE=fissionmesh]
+description "fission source from VERA (multi-state-1.inp)"
+format source
+input "multi-state-1.src-extracted.shift.h5"
+
+[TALLY]
+
+
+[TALLY][MESH mesh_tally]
+type grid
+description "Mesh tally to verify correct input of fission source."
+reactions fission
+x 0.0 3.0 6.3
+y 0.0 3.0 6.3
+z 0.0 1.0
+
+[PHYSICS=sce scephysics]
+ce_lib ce_v7.1_endf
+mode n
+
+!################################### GEOMETRY ##################################
+[MODEL=gg]
+input "multi-state-1.gg.omn"
