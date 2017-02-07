@@ -32,8 +32,8 @@
   bc_top reflecting
   bc_bot reflecting
 
-  !baffle SS304 0.19 2.85
-  !vessel mod 219.71 cs 241.70
+  baffle SS304 0.19 2.85
+  vessel mod 100.0 cs 110.0
 
   !mat ss 8.0
 
