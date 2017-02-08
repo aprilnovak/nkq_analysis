@@ -15,9 +15,9 @@ os.system("~/install/bin/gg2xml {0}.gg.omn".format(base_filename))
 print("Renaming generated XML file")
 os.system("mv {0}.gg.gg.xml {0}.gg.xml".format(base_filename))
 
-os.system("python ~/projects/nkq_analysis/python-scripts/find-replace.py {0}.gg.xml rtk_fuel core-array".format(base_filename))
+#os.system("python ~/projects/nkq_analysis/python-scripts/find-replace.py {0}.gg.xml rtk_fuel core-array".format(base_filename))
 
-os.system("mv {0}-replaced.gg.xml {0}.gg.xml".format(base_filename))
+#os.system("mv {0}-replaced.gg.xml {0}.gg.xml".format(base_filename))
 
 os.system("omnibus-run {0}.omn".format(base_filename))
 
