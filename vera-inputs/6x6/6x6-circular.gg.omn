@@ -7,9 +7,9 @@ boundary "outer"
 input "6x6-circular.shift.rtk.xml"
 
 [UNIVERSE][SHAPE=cyl outer]
-radius 30.0
+radius 25.0
 extents 0.0 1.0
-origin 19.2 19.2 0.0
+origin 22.1 22.1 0.0
 axis z
 
 !################################# barrel ######################################
@@ -17,9 +17,9 @@ axis z
 boundary "outer_barrel"
 
 [UNIVERSE][SHAPE=cyl outer_barrel]
-radius 31.0
+radius 26.0
 extents 0 1.0
-origin 19.2 19.2 0.0
+origin 22.1 22.1 0.0
 axis z
 
 [UNIVERSE][HOLE inner]
