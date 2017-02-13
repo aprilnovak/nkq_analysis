@@ -2,7 +2,7 @@ import sys
 
 filename = sys.argv[1]
 
-base_filename = filename[:-16]
+base_filename = filename[:-7]
 
 print(base_filename)
 
