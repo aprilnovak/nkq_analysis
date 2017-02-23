@@ -116,40 +116,7 @@
        1 1 1 1 1 1 1 1
        1 1 1 1 1 1 1 1 1
 
-  lattice PLEN
-       2
-       3 3
-       3 3 3
-       2 3 3 2
-       3 3 3 3 3
-       3 3 3 3 3 2
-       2 3 3 2 3 3 3
-       3 3 3 3 3 3 3 3
-       3 3 3 3 3 3 3 3 3
-
-  lattice PLUG
-       2
-       4 4
-       4 4 4
-       2 4 4 2
-       4 4 4 4 4
-       4 4 4 4 4 2
-       2 4 4 2 4 4 4
-       4 4 4 4 4 4 4 4
-       4 4 4 4 4 4 4 4 4
-
-  lattice GAP 
-       2
-       5 5
-       5 5 5
-       2 5 5 2
-       5 5 5 5 5
-       5 5 5 5 5 2
-       2 5 5 2 5 5 5
-       5 5 5 5 5 5 5 5
-       5 5 5 5 5 5 5 5 5
-
-  axial  420E01  6.05 GAP 6.42 PLUG 8.35 LAT420 374.11 PLEN 393.16 PLUG 394.28 GAP 397.50
+  axial  420E01  6.05 LAT420  397.50
   
   grid BOTTOM inc 3.87 958.0 0.9070 	! grid height (cm), mass (g), loss coef
   grid TOP inc    3.87 792.2 0.9070 	! grid height (cm), mass (g), loss coef
