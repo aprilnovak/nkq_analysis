@@ -2,35 +2,19 @@
   title 'CASL Westinghouse PWR - Hybrid Model'
 
 [STATE] 		!BOC
-  title 'WEC PWR - BOC Eq Xe - Bank D @ 215 steps'
-  power .1		! %
-  flow .1		! %
-  tinlet   554.54 F	! core inlet temperature
-  pressure 2250    	! psia
-  	
-  thexp    on		! thermal Expansion preprocessor
-  thexp_tmod 583.0 K	! (MPACT/MPACT_libs/ThermalExpansion/src/ThermalExpandXML.exe)
-  thexp_tfuel 900.0 K
-  thexp_tclad 610.0 K
-
-  sym      full  
-  search   boron	! search soluble boron concentration
-			! =k_eff determined by boron concentration
-  xenon    equil        ! equilibrium xenon
-
- !boron    1200         ! ppm
- !tfuel    900 K 	! [used only if feedback = OFF]
- !modden   0.7          ! g/cc [used only if feedback = OFF]
-
-[STATE]  
-  deplete EFPD 0.0		! depletion statepoint ["Effective Full Power Days"]
+  power 0.0		! %
+  tinlet 565 K
+  tfuel 565 K
+  modden 0.743
+  boron 1300
+  sym full
+  feedback off
 
 [CORE]  ! WEC
-  cycle CN-3			! cycle number
   size   15 			! assemblies across core 
-  rated 2775 1 			! rated <power[MW]> <flow[Mlbs/hr]>
+  rated 0.01 0.01 		! rated <power[MW]> <flow[Mlbs/hr]>
   apitch 21.504			! assembly pitch [cm]
-  height 406.33			! plate separation [ bottom of upper core plate - top of lower core plate]
+  height 407.67			! plate separation [ bottom of upper core plate - top of lower core plate]
 
   core_shape
     0 0 0 0 0 0 1 1 1 0 0 0 0 0 0
@@ -59,22 +43,14 @@
    420E01 420E01 420E01 420E01 
    420E01 420E01 
    
+  bc_rad vacuum
+  bc_top reflecting
+  bc_bot reflecting
+
   baffle ss 0.04 2.22 
 
   vessel  mod 169.86        	! barrel IR (cm) 
            ss 174.94        	! barrel OR (cm)
-
-  lower_plate ss  4.45 0.668	! mat, thickness, vol frac
-  upper_plate ss  7.62 0.668   	! mat, thickness, vol frac
-
-! lower_ref  mod 20.0 1.0   	! not needed ***not sure what this is for (20 cm of moderator)
-! upper_ref  mod 20.0 1.0   	!
-
-  mat he     0.0001786
-  mat inc    8.19
-  mat ss     8.0
-  mat zirc   6.56 zirc4
-  mat spring 0.4 ss 0.05 he 0.95
 
 [ASSEMBLY]
   title "Westinghouse 17x17"
@@ -97,68 +73,8 @@
        1 1 1 1 1 1 1 1
        1 1 1 1 1 1 1 1 1
 
-  axial  420E01  6.05 LAT420  397.50
+  axial  420E01  0.0 LAT420  406.33
   
-  grid BOTTOM inc 3.87 958.0 0.9070 	! grid height (cm), mass (g), loss coef
-  grid TOP inc    3.87 792.2 0.9070 	! grid height (cm), mass (g), loss coef
-  grid MVG zirc4  3.81 979.9 0.9065 	! grid height (cm), mass (g), loss coef
-  grid IFM zirc4  3.81 442.2 0.9065 	! grid height (cm), mass (g), loss coef
-
-  grid_axial
-      BOTTOM  4.53
-      MVG  66.83
-      MVG 119.03
-      MVG 171.22
-      IFM 197.31
-      MVG 223.42
-      IFM 249.51
-      MVG 275.62
-      IFM 301.71
-      MVG 327.81
-      TOP 379.86
-
-  lower_nozzle  ss 6.05 5311.8  	! mat, height, mass (g)
-  upper_nozzle  ss 8.83 7290.1  	! mat, height, mass (g)
-
-[EDITS]
-  axial_edit_bounds 
-  		8.35
-		16.432
-		24.514
-		32.596
-		40.679
-		48.761
-		56.843
-		64.925
-		68.735
-		76.8
-		84.865
-		92.93
-		100.995
-		109.06
-		117.125
-		120.935
-		128.998
-		137.062
-		145.125
-		153.188
-		161.252
-		169.315
-		173.125
-		195.405
-		199.215
-		221.515
-		225.325
-		247.605
-		251.415
-		273.715
-		277.525
-		299.805
-		303.615
-		325.905
-		329.715
-		374.11
-
 [MPACT]
   num_space 1
   num_angle -8
