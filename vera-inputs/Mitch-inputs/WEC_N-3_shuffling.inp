@@ -1,0 +1,449 @@
+[CASEID]
+  title 'CASL Westinghouse PWR - Hybrid Model'
+
+[STATE] 		!BOC
+  title 'WEC PWR - BOC Eq Xe - Bank D @ 215 steps'
+  power 100.0		! %
+  flow 100.0		! %
+  tinlet   554.54 F	! core inlet temperature
+  pressure 2250    	! psia
+  	
+  thexp    on		! thermal Expansion preprocessor
+  thexp_tmod 583.0 K	! (MPACT/MPACT_libs/ThermalExpansion/src/ThermalExpandXML.exe)
+  thexp_tfuel 900.0 K
+  thexp_tclad 610.0 K
+
+  sym      full  
+  feedback on 
+  search   boron	! search soluble boron concentration
+			! =k_eff determined by boron concentration
+  xenon    equil        ! equilibrium xenon
+
+  rodbank SA 230
+          SB 230
+          SD 230
+           A 230 
+           B 230
+           C 230 
+           D 215 
+
+ !boron    1200         ! ppm
+ !tfuel    900 K 	! [used only if feedback = OFF]
+ !modden   0.7          ! g/cc [used only if feedback = OFF]
+
+[STATE]  
+  deplete EFPD 0.0		! depletion statepoint ["Effective Full Power Days"]
+  restart_write restart_cycN-3.h5 "BOC" 
+
+[STATE]
+  op_date "2000/10/01"		! improvised EOC date (consistency maintained in total outage days)
+  deplete EFPD 426.0		! depletion statepoint
+  restart_write restart_cycN-3.h5 "EOC"  
+  
+ 
+[CORE]  ! WEC
+  cycle CN-3			! cycle number
+  size   15 			! assemblies across core 
+  rated 2775 1 			! rated <power[MW]> <flow[Mlbs/hr]>
+  apitch 21.504			! assembly pitch [cm]
+  height 406.33			! plate separation [ bottom of upper core plate - top of lower core plate]
+
+  core_shape
+    0 0 0 0 0 0 1 1 1 0 0 0 0 0 0
+    0 0 0 0 1 1 1 1 1 1 1 0 0 0 0
+    0 0 0 1 1 1 1 1 1 1 1 1 0 0 0
+    0 0 1 1 1 1 1 1 1 1 1 1 1 0 0
+    0 1 1 1 1 1 1 1 1 1 1 1 1 1 0
+    0 1 1 1 1 1 1 1 1 1 1 1 1 1 0
+    1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+    1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+    1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+    0 1 1 1 1 1 1 1 1 1 1 1 1 1 0
+    0 1 1 1 1 1 1 1 1 1 1 1 1 1 0
+    0 0 1 1 1 1 1 1 1 1 1 1 1 0 0
+    0 0 0 1 1 1 1 1 1 1 1 1 0 0 0
+    0 0 0 0 1 1 1 1 1 1 1 0 0 0 0
+    0 0 0 0 0 0 1 1 1 0 0 0 0 0 0
+    
+  assm_map
+   420E01            		! 4.20% U-235 enrichment
+   420E01 420E01
+   420E01 420E01 420E01
+   420E01 420E01 420E01 420E01
+   420E01 420E01 420E01 420E01 420E01
+   420E01 420E01 420E01 420E01 420E01 
+   420E01 420E01 420E01 420E01 
+   420E01 420E01 
+   
+  insert_map 
+    -                  		! <##>W: Insert w/ <##> WABA rods
+    -   -    
+    -   16W -   
+    24W -   -   -  
+    -   20W -   24W - 
+    16W -   12W -   -
+    -   -   -   -
+    -   -
+
+! omitting det_map -> no detector information
+    
+  crd_map
+    -              		! 1 type of control rod (defined in [CONTROL] block)
+    -   CR1 
+    CR1 -   CR1 
+    -   -   -  CR1 
+    -   -  CR1 -  CR1
+    -  CR1 -   -   -
+    CR1 -   CR1 - 
+    -   -
+    
+  crd_bank 
+    -
+    - SB 
+    C -  SD 
+    - -  - SB 
+    - -  B - C
+    - SA - - -
+    D -  A - 
+    - -
+
+
+  baffle ss 0.04 2.22 
+
+  vessel  mod 169.86        	! barrel IR (cm) 
+           ss 174.94        	! barrel OR (cm)
+          mod 176.07        	! neutron pad IR (cm)
+           ss 182.77      	! neutron pad effective OR (cm) (modeled as 90 by conserving volume (32/90) and reducing actual OR ***not sure how this works
+          mod 199.39       	! vessel liner IR (cm)
+           ss 199.79        	! vessel liner OR / vessel IR (cm)
+           cs 219.79        	! vessel OR (cm)	<<This may be the source of material sorting error - commented out until verification that this is not the problem>>	
+
+  lower_plate ss  4.45 0.668	! mat, thickness, vol frac
+  upper_plate ss  7.62 0.668   	! mat, thickness, vol frac
+
+! lower_ref  mod 20.0 1.0   	! not needed ***not sure what this is for (20 cm of moderator)
+! upper_ref  mod 20.0 1.0   	!
+
+  xlabel  R P N M L K J H G  F  E  D  C  B  A
+  ylabel  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+
+  mat he     0.0001786
+  mat inc    8.19
+  mat ss     8.0
+  mat zirc   6.56 zirc4
+  mat spring 0.4 ss 0.05 he 0.95
+
+[ASSEMBLY]
+  title "Westinghouse 17x17"
+  npin 17 
+  ppitch 1.2649
+  
+  fuel U420 10.41 95.72 / 4.20 
+
+  cell 1     0.4096 0.4178 0.475 / U420	he zirc4	! 4.20% Fuel
+  cell 2            0.5615 0.602 / mod	   zirc4	! guide/instrument tube
+  cell 3            0.5615 0.602 /	he zirc4	! plenum
+  cell 4                   0.25 /	   zirc4	! plug
+  cell 5                   0.25 / mod			! empty
+
+  lattice LAT420 
+       2
+       1 1
+       1 1 1
+       2 1 1 2
+       1 1 1 1 1
+       1 1 1 1 1 2
+       2 1 1 2 1 1 1
+       1 1 1 1 1 1 1 1
+       1 1 1 1 1 1 1 1 1
+
+  lattice PLEN
+       2
+       3 3
+       3 3 3
+       2 3 3 2
+       3 3 3 3 3
+       3 3 3 3 3 2
+       2 3 3 2 3 3 3
+       3 3 3 3 3 3 3 3
+       3 3 3 3 3 3 3 3 3
+
+  lattice PLUG
+       2
+       4 4
+       4 4 4
+       2 4 4 2
+       4 4 4 4 4
+       4 4 4 4 4 2
+       2 4 4 2 4 4 4
+       4 4 4 4 4 4 4 4
+       4 4 4 4 4 4 4 4 4
+
+  lattice GAP 
+       2
+       5 5
+       5 5 5
+       2 5 5 2
+       5 5 5 5 5
+       5 5 5 5 5 2
+       2 5 5 2 5 5 5
+       5 5 5 5 5 5 5 5
+       5 5 5 5 5 5 5 5 5
+
+  axial  420E01  6.05 GAP 6.42 PLUG 8.35 LAT420 374.11 PLEN 393.16 PLUG 394.28 GAP 397.50
+  
+  grid BOTTOM inc 3.87 958.0 0.9070 	! grid height (cm), mass (g), loss coef
+  grid TOP inc    3.87 792.2 0.9070 	! grid height (cm), mass (g), loss coef
+  grid MVG zirc4  3.81 979.9 0.9065 	! grid height (cm), mass (g), loss coef
+  grid IFM zirc4  3.81 442.2 0.9065 	! grid height (cm), mass (g), loss coef
+
+  grid_axial
+      BOTTOM  4.53
+      MVG  66.83
+      MVG 119.03
+      MVG 171.22
+      IFM 197.31
+      MVG 223.42
+      IFM 249.51
+      MVG 275.62
+      IFM 301.71
+      MVG 327.81
+      TOP 379.86
+
+  lower_nozzle  ss 6.05 5311.8  	! mat, height, mass (g)
+  upper_nozzle  ss 8.83 7290.1  	! mat, height, mass (g)
+
+[INSERT]
+  title "WABA"
+  npin 17
+
+  mat waba 3.65 b4c 0.0949 al2o3 0.9051
+
+  cell W  0.28575 0.33909 0.35306 0.40386 0.41783 0.48387 / mod zirc he waba he zirc
+  cell P                          0.418 0.484 /              spring zirc
+
+  rodmap  WABA12
+     -
+     - -
+     - - -
+     - - - -
+     - - - - -
+     - - - - - W
+     - - - - - - -
+     - - - - - - - -
+     - - - - - - - - -
+
+  rodmap  PLEN12
+     -
+     - -
+     - - -
+     - - - -
+     - - - - -
+     - - - - - P
+     - - - - - - -
+     - - - - - - - -
+     - - - - - - - - -
+
+  rodmap  WABA16
+     -
+     - -
+     - - -
+     W - - -
+     - - - - -
+     - - - - - W
+     - - - - - - -
+     - - - - - - - -
+     - - - - - - - - -
+
+  rodmap  PLEN16
+     -
+     - -
+     - - -
+     P - - -
+     - - - - -
+     - - - - - P
+     - - - - - - -
+     - - - - - - - -
+     - - - - - - - - -
+
+  rodmap  WABA20
+     -
+     - -
+     - - -
+     W - - -
+     - - - - -
+     - - - - - W
+     - - - - - - -
+     - - - - - - - -
+     - - - - - - - - -
+
+  rodmap  PLEN20
+     -
+     - -
+     - - -
+     P - - -
+     - - - - -
+     - - - - - P
+     - - - - - - -
+     - - - - - - - -
+     - - - - - - - - -
+
+  rodmap  WABA24
+     -
+     - -
+     - - -
+     W - - -
+     - - - - -
+     - - - - - W
+     - - - - - - -
+     - - - - - - - -
+     - - - - - - - - -
+
+  rodmap  PLEN24
+     -
+     - -
+     - - -
+     P - - -
+     - - - - -
+     - - - - - P
+     - - - - - - -
+     - - - - - - - -
+     - - - - - - - - -
+
+  axial 12W  39.40 WABA12 344.20 PLEN12 397.50
+  axial 16W  39.40 WABA16 344.20 PLEN16 397.50
+  axial 20W  39.40 WABA20 344.20 PLEN20 397.50
+  axial 24W  39.40 WABA24 344.20 PLEN24 397.50
+
+[CONTROL]
+  title "B4C with AIC tips"
+  npin 17
+  stroke  365.125 230     ! approx for 1.5875 step sizes and 230 max stroke
+
+  cell A  0.382 0.386 0.484 / aic he ss
+  cell B  0.373 0.386 0.484 / b4c he ss
+  cell P        0.386 0.484 /     he ss ! plenum
+  cell G              0.484 /        ss ! plug   
+
+  ! Control rod assembly lattices (control rod fingers must match [ASSEMBLY] lattice guide tube locations
+  rodmap AIC			
+     A				
+     - -
+     - - -
+     A - - A
+     - - - - -
+     - - - - - A
+     A - - A - - -
+     - - - - - - - -
+     - - - - - - - - -
+
+  rodmap B4C
+     B
+     - -
+     - - -
+     B - - B
+     - - - - -
+     - - - - - B
+     B - - B - - -
+     - - - - - - - -
+     - - - - - - - - -
+
+  rodmap PLEN
+     P
+     - -
+     - - -
+     P - - P
+     - - - - -
+     - - - - - P
+     P - - P - - -
+     - - - - - - - -
+     - - - - - - - - -
+
+  rodmap PLUG
+     G
+     - -
+     - - -
+     G - - G
+     - - - - -
+     - - - - - G
+     G - - G - - -
+     - - - - - - - -
+     - - - - - - - - -
+
+  axial  CR1    15.131 PLUG  17.031 AIC 118.631 B4C 377.711 PLEN 388.411 PLUG 390.311
+
+[EDITS]
+  axial_edit_bounds 
+  		8.35
+		16.432
+		24.514
+		32.596
+		40.679
+		48.761
+		56.843
+		64.925
+		68.735
+		76.8
+		84.865
+		92.93
+		100.995
+		109.06
+		117.125
+		120.935
+		128.998
+		137.062
+		145.125
+		153.188
+		161.252
+		169.315
+		173.125
+		195.405
+		199.215
+		221.515
+		225.325
+		247.605
+		251.415
+		273.715
+		277.525
+		299.805
+		303.615
+		325.905
+		329.715
+		374.11
+
+[MPACT]
+! MOC, CMFD (default)
+! DEFAULTS:
+! 		-mesh	num_rad = 3,1	num_azi = 1,8,8,8,12
+!		(cyl pins; num_rad=radial subdivs per ring, num_azi=azimuthal subdivs per subdiv ring)
+
+! Base Inputs
+  ray_spacing       0.1		! characteristic ray spacing (default=0.05)
+
+! Iteration Control Inputs  
+  k_tolerance       1e-5	! global tolerance on convergence of eigenvalue
+  flux_tolerance    1e-4	! tolerance on convergence of 2-norm of flux
+  scattering        TCP0	! (default=TransportCorrectedP0approx.) P_N order of scattering
+
+! Quadrature Set Inputs
+  quad_type LEVEL-SYMMETRIC	! Quadrature Type (chose level-sym. for speed)
+  azimuthals_octant 12		! Azimuthal angles per octant
+
+! Parallel Environment Inputs
+  par_method	 DEFAULT	! parallelization specified by 3 following parameters
+  num_space      1		! number of spatial decomposition regions (default=1)
+  num_angle      1		! number of angle groups to be divided in parallel partitions (default=1)
+  num_threads    1		! number of threads used in parallel execution (default=1)
+
+[COBRATF]
+  beta_sp   0.005
+  parallel       0
+
+[SHIFT]
+  transport             ce
+  do_transport          false
+  do_output             true
+  output_geometry       true
+  output_fission_source true
+  problem_mode          forward
+  Np                    100
