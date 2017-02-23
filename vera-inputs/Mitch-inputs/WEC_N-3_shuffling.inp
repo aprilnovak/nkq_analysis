@@ -3,8 +3,8 @@
 
 [STATE] 		!BOC
   title 'WEC PWR - BOC Eq Xe - Bank D @ 215 steps'
-  power 100.0		! %
-  flow 100.0		! %
+  power .1		! %
+  flow .1		! %
   tinlet   554.54 F	! core inlet temperature
   pressure 2250    	! psia
   	
@@ -14,7 +14,6 @@
   thexp_tclad 610.0 K
 
   sym      full  
-  feedback on 
   search   boron	! search soluble boron concentration
 			! =k_eff determined by boron concentration
   xenon    equil        ! equilibrium xenon
@@ -25,14 +24,7 @@
 
 [STATE]  
   deplete EFPD 0.0		! depletion statepoint ["Effective Full Power Days"]
-  restart_write restart_cycN-3.h5 "BOC" 
 
-[STATE]
-  op_date "2000/10/01"		! improvised EOC date (consistency maintained in total outage days)
-  deplete EFPD 426.0		! depletion statepoint
-  restart_write restart_cycN-3.h5 "EOC"  
-  
- 
 [CORE]  ! WEC
   cycle CN-3			! cycle number
   size   15 			! assemblies across core 
@@ -71,20 +63,12 @@
 
   vessel  mod 169.86        	! barrel IR (cm) 
            ss 174.94        	! barrel OR (cm)
-          mod 176.07        	! neutron pad IR (cm)
-           ss 182.77      	! neutron pad effective OR (cm) (modeled as 90 by conserving volume (32/90) and reducing actual OR ***not sure how this works
-          mod 199.39       	! vessel liner IR (cm)
-           ss 199.79        	! vessel liner OR / vessel IR (cm)
-           cs 219.79        	! vessel OR (cm)	<<This may be the source of material sorting error - commented out until verification that this is not the problem>>	
 
   lower_plate ss  4.45 0.668	! mat, thickness, vol frac
   upper_plate ss  7.62 0.668   	! mat, thickness, vol frac
 
 ! lower_ref  mod 20.0 1.0   	! not needed ***not sure what this is for (20 cm of moderator)
 ! upper_ref  mod 20.0 1.0   	!
-
-  xlabel  R P N M L K J H G  F  E  D  C  B  A
-  ylabel  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
 
   mat he     0.0001786
   mat inc    8.19
@@ -101,9 +85,6 @@
 
   cell 1     0.4096 0.4178 0.475 / U420	he zirc4	! 4.20% Fuel
   cell 2            0.5615 0.602 / mod	   zirc4	! guide/instrument tube
-  cell 3            0.5615 0.602 /	he zirc4	! plenum
-  cell 4                   0.25 /	   zirc4	! plug
-  cell 5                   0.25 / mod			! empty
 
   lattice LAT420 
        2
@@ -179,28 +160,9 @@
 		374.11
 
 [MPACT]
-! MOC, CMFD (default)
-! DEFAULTS:
-! 		-mesh	num_rad = 3,1	num_azi = 1,8,8,8,12
-!		(cyl pins; num_rad=radial subdivs per ring, num_azi=azimuthal subdivs per subdiv ring)
-
-! Base Inputs
-  ray_spacing       0.1		! characteristic ray spacing (default=0.05)
-
-! Iteration Control Inputs  
-  k_tolerance       1e-5	! global tolerance on convergence of eigenvalue
-  flux_tolerance    1e-4	! tolerance on convergence of 2-norm of flux
-  scattering        TCP0	! (default=TransportCorrectedP0approx.) P_N order of scattering
-
-! Quadrature Set Inputs
-  quad_type LEVEL-SYMMETRIC	! Quadrature Type (chose level-sym. for speed)
-  azimuthals_octant 12		! Azimuthal angles per octant
-
-! Parallel Environment Inputs
-  par_method	 DEFAULT	! parallelization specified by 3 following parameters
-  num_space      1		! number of spatial decomposition regions (default=1)
-  num_angle      1		! number of angle groups to be divided in parallel partitions (default=1)
-  num_threads    1		! number of threads used in parallel execution (default=1)
+  num_space 1
+  num_angle -8
+  num_threads 1
 
 [COBRATF]
   beta_sp   0.005
