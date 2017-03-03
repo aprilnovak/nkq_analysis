@@ -15,9 +15,9 @@ np 10000
 ! set boundary conditions in SHIFT for the outer boundary
 [SHIFT][DECOMPOSITION=bmesh]
 boundary_condition vacuum vacuum vacuum vacuum vacuum vacuum
-x_partition -300.0 300.0
-y_partition -300.0 300.0
-z_partition 0.0    407.67
+x_partition -100.0 100.000001
+y_partition -100.0 100.000001
+z_partition 0.0    1.00001
 
 [SOURCE=fissionmesh]
 description "fission source from VERA"
@@ -40,4 +40,4 @@ mode n
 
 !################################### GEOMETRY ##################################
 [MODEL=gg]
-input "ex-core.gg.omn"
+input "6x6-big-baffle.gg.omn"
