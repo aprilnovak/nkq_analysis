@@ -13,7 +13,7 @@
 [CORE]
   size   6
   apitch 6.4
-  height 407.67
+  height 1.0
   rated  0.01 0.01
 
   core_shape
