@@ -27,6 +27,9 @@
   bc_top reflecting
   bc_bot reflecting
 
+  baffle SS304 0.19 1.26
+  vessel mod 30.0 SS304 31.0 mod 32.0 SS304 33.0 
+
 [ASSEMBLY]
   npin   5
   ppitch 1.26

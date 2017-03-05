@@ -7,24 +7,31 @@
   tfuel    565 K
   modden   0.743      ! g/cc
   boron    1300       ! ppm
-  sym      qtr  
+  sym      full  
   feedback off
 
 [CORE]
-  size   1
+  size   3
   apitch 21.50 
   height 1.0
   rated  0.01 0.01
 
   core_shape
-    1
+  0 1 0
+  1 1 1
+  0 1 0
 
   assm_map
-    ASSY
+     ASSY
+ASSY ASSY ASSY
+     ASSY
 
   bc_rad reflecting
   bc_top reflecting
   bc_bot reflecting
+
+  baffle ss 0.2 1.2
+  vessel mod 169.86 ss 174.94
 
 [ASSEMBLY]
   npin   17
