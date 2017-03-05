@@ -1,0 +1,30 @@
+[GEOMETRY]
+global "reactor"
+
+!################################# rtk fuel ####################################
+[UNIVERSE=rtkarray core-array]
+boundary "outer"
+input "hbr2.shift.rtk.xml"
+
+[UNIVERSE][SHAPE=cyl outer]
+radius 169.86
+extents 0 1.0
+origin 32.25 32.25 0.0
+axis z
+
+!################################# ex-core #####################################
+[UNIVERSE=general reactor]
+boundary "barrel"
+
+[UNIVERSE][SHAPE=cyl barrel]
+radius 174.94.0
+extents 0 1.0
+origin 32.25 32.25 0.0
+axis z
+
+[UNIVERSE][HOLE just_fuel]
+fill core-array
+
+[UNIVERSE][CELL steel_barrel]
+comp 10
+shapes +just_fuel -barrel

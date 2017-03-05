@@ -1,0 +1,41 @@
+[PROBLEM]
+name "Ex-core region for core from hbr2.inp"
+mode forward
+
+[COMP]
+compgen hdf5
+input "hbr2.shift_compositions-custom.h5"
+
+[RUN=mpi]
+np 1
+
+[SHIFT]
+np 10000
+
+! set boundary conditions in SHIFT for the outer boundary
+[SHIFT][DECOMPOSITION=bmesh]
+boundary_condition vacuum vacuum vacuum vacuum vacuum vacuum
+x_partition 0.0 6.30001
+y_partition 0.0 6.30001
+z_partition 0.0 1.00001
+
+[SOURCE=fissionmesh]
+format source                      
+input "hbr2.src-extracted.shift.h5" 
+
+[TALLY]
+
+[TALLY][CYLMESH cyl_mesh]
+reactions flux
+r 0 0.5
+theta 0 1.0
+z 0.0 0.5
+neutron_bins 500.0 400.0 300.0 200.0 150.0 ! generate tallies for 4 energy groups - NEW
+
+[PHYSICS=sce scephysics]
+ce_lib ce_v7.1_endf
+mode n
+
+!################################### GEOMETRY ##################################
+[MODEL=gg]
+input "hbr2.gg.omn"
