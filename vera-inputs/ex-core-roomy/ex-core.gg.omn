@@ -8,9 +8,9 @@ boundary "outer"
 input "ex-core.shift.rtk.xml"
 
 [UNIVERSE][SHAPE=cyl outer]
-radius 9.75
+radius 35
 extents 0 1.0
-origin 9.75 9.75 0.0
+origin 16.25 16.25 0.0
 axis z
 
 !##################################### ex-core #################################
@@ -18,9 +18,9 @@ axis z
 boundary "barrel"
 
 [UNIVERSE][SHAPE=cyl barrel]
-radius 10.75
+radius 45
 extents 0 1.0
-origin 9.75 9.75 0.0
+origin 16.25 16.25 0.0
 axis z
 
 [UNIVERSE][HOLE just_fuel]

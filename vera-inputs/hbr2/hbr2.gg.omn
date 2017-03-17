@@ -10,7 +10,8 @@ input "hbr2.shift.rtk.xml"
 !radius 169.86
 radius 50.0
 extents 0 1.0
-origin 32.25 32.25 0.0
+!origin 32.25 32.25 0.0
+origin 55.0 55.0 0.0
 axis z
 
 !################################# ex-core #####################################
@@ -21,7 +22,8 @@ boundary "barrel"
 !radius 174.94
 radius 55.0
 extents 0 1.0
-origin 32.25 32.25 0.0
+!origin 32.25 32.25 0.0
+origin 55.0 55.0 0.0
 axis z
 
 [UNIVERSE][HOLE just_fuel]

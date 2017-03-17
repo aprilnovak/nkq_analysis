@@ -1,8 +1,3 @@
-! This is an Omnibus input corresponding to ex-core.inp. For now, run a forward
-! calculation, i.e. with no deterministic acceleration. So, there is no [DENOVO]
-! or [HYBRID] blocks until the mode is hybrid. Also, there is no [SHIFT][VR]
-! block.
-
 [PROBLEM]
 name "Ex-core region for core from ex-core.inp"
 mode forward
@@ -30,13 +25,13 @@ input "ex-core.src-extracted.shift.h5"
 
 [TALLY]
 
-[TALLY][MESH mesh_tally]
-type grid
-description "Mesh tally to verify correct input of fission source."
-reactions fission
-x 0.   0.1  0.2  0.3  0.4  0.5  0.6  0.7  0.8  0.9  1.   1.1  1.2  1.3  1.4 1.5  1.6  1.7  1.8  1.9  2.   2.1  2.2  2.3  2.4  2.5  2.6  2.7  2.8  2.9 3.   3.1  3.2  3.3  3.4  3.5  3.6  3.7  3.8  3.9  4.   4.1  4.2  4.3  4.4 4.5  4.6  4.7  4.8  4.9  5.   5.1  5.2  5.3  5.4  5.5  5.6  5.7  5.8  5.9 6.   6.1  6.2  6.3
-y 0.   0.1  0.2  0.3  0.4  0.5  0.6  0.7  0.8  0.9  1.   1.1  1.2  1.3  1.4 1.5  1.6  1.7  1.8  1.9  2.   2.1  2.2  2.3  2.4  2.5  2.6  2.7  2.8  2.9 3.   3.1  3.2  3.3  3.4  3.5  3.6  3.7  3.8  3.9  4.   4.1  4.2  4.3  4.4 4.5  4.6  4.7  4.8  4.9  5.   5.1  5.2  5.3  5.4  5.5  5.6  5.7  5.8  5.9 6.   6.1  6.2  6.3
-z 0 1.0
+[TALLY][CYLMESH cyl_mesh]
+reactions flux
+r 0 0.5
+theta 0 1.0
+z 0.0 0.5
+neutron_bins 500.0 400.0 300.0 200.0 150.0 ! generate tallies for 4 energy groups - NEW
+
 
 [PHYSICS=sce scephysics]
 ce_lib ce_v7.1_endf
