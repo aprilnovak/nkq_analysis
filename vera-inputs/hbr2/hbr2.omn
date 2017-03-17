@@ -19,9 +19,21 @@ x_partition 0.0 6.30001
 y_partition 0.0 6.30001
 z_partition 0.0 1.00001
 
-[SOURCE=fissionmesh]
-format source                      
-input "hbr2.src-extracted.shift.h5" 
+! temporarily use a different source until error is fixed
+![SOURCE=fissionmesh]
+!format source                      
+!input "hbr2.src-extracted.shift.h5" 
+
+[SOURCE=separable]
+
+[SOURCE][ENERGY=mono]
+energy 5.0
+pt n
+
+[SOURCE][SHAPE=point]
+x 1.0
+y 1.0
+z 0.5
 
 [TALLY]
 
