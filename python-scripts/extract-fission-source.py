@@ -31,7 +31,7 @@ class ExtractFissionSource:
 
 	    for s in range(len(input_groups) - 3):
 		    # output filename
-		    filename_out = self.filename[:-len(suffix_in)] + ".src-extracted_state_" + str(s + 1) + ".shift.h5"
+		    filename_out = self.filename[:-len(suffix_in)] + ".src-extracted_state_" + str(s) + ".shift.h5"
 		    
 		    # open an HDF5 file for writing
 		    with h5py.File(filename_out, "w") as fo:
