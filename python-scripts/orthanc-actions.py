@@ -7,7 +7,7 @@ base_filename = filename[:-4]
 print(base_filename)
 
 print("Adding new compositions to {0}.shift_compositions.h5".format(base_filename))
-os.system("python ~/projects/nkq_analysis/python-scripts/add-comps.py {0}.shift_compositions.h5".format(base_filename))
+os.system("python ~/projects/nkq_analysis/python-scripts/add-comps.py {0}".format(base_filename))
 
 print("Generating XML version of GG file")
 os.system("~/install/bin/gg2xml {0}.gg.omn".format(base_filename))
